@@ -14,5 +14,5 @@ sudo pip install tqdm
 ```
 Step2 
 ```bash
-sudo bash -c "$(curl -sL https://github.com/iamtheted/transfer-me/raw/main/install.sh)"
+sudo bash 
 ```
