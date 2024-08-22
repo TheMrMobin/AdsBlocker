@@ -16,3 +16,5 @@ Step2
 ```bash
 sudo python3 adsblocker.py (https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/adsblocker.py)
 ```
+
+[![Stargazers over time](https://starchart.cc/TheMrMobin/AdsBlocker.svg?variant=adaptive)](https://starchart.cc/TheMrMobin/AdsBlocker)
