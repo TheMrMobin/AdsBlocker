@@ -14,5 +14,5 @@ sudo pip install tqdm
 ```
 Step2 
 ```bash
-[sudo python3 adsblocker.py](https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/adsblocker.py)
+sudo python3 adsblocker.py (https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/adsblocker.py)
 ```
