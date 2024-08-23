@@ -9,6 +9,7 @@ A script for users who want to have a great social media experience
 
 
 ## ⚜️Run AdsBlocker 
+# Use the following command
 ```bash
 sudo bash "$(https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/adsinstall.sh)"
 ```
