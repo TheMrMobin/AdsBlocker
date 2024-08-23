@@ -19,5 +19,5 @@ sudo bash "$(https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/adsins
 ####
 ### step 2 (Select 1 to perform the block operation)
 ![GitHub Logo](https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/Data/img-main.png)
-
+####
 [![Stargazers over time](https://starchart.cc/TheMrMobin/AdsBlocker.svg?variant=adaptive)](https://starchart.cc/TheMrMobin/AdsBlocker)
