@@ -15,7 +15,8 @@ A script for users who want to have a great social media experience
 
 ### step 1 (First, you run this command on your server)
 ```bash
-sudo bash "$(https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/adsinstall.sh)"
+sudo curl -sSL https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/adsinstall.sh | sudo bash
+
 ```
 ####
 ### step 2 (Select 1 to perform the block operation)
