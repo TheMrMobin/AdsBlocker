@@ -5,7 +5,7 @@
 Usage
 `Ads Blocker v1`
 A script for users who want to have a great social media experience
-
+####
 ### 📜 Used in the list below
   - **X-UI**
   - **Marzban Nude**
