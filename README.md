@@ -8,11 +8,7 @@ A script for users who want to have a great social media experience
 
 ## Setup Instructions
 
-Spet1
-```bash
-sudo pip install tqdm
-```
-Step2 
+## Run AdsBlocker 
 ```bash
 sudo bash "$(https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/adsinstall.sh)"
 ```
