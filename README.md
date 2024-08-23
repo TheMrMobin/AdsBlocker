@@ -2,14 +2,15 @@
 <p align="center">
     A script to block advertising services
 </p>
-# Usage
+Usage
 `Ads Blocker v1`
 A script for users who want to have a great social media experience
 
 
 
 ## ⚜️Run AdsBlocker 
-# Use the following command
+# First, you run this command on your server
+### step 1
 ```bash
 sudo bash "$(https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/adsinstall.sh)"
 ```
