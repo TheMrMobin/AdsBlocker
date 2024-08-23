@@ -108,26 +108,32 @@ def block_unblock_ads(action):
     print(f"\nAds have been {action}ed in {elapsed_time:.2f} seconds.")
 
 def menu():
-    """Display the menu and handle user input."""
+    """نمایش منو و مدیریت ورودی کاربر."""
     actions = {'1': 'block', '2': 'unblock', '3': 'exit'}
     while True:
         clear_screen()
         display_banner()
-        print("Please choose an option:")
-        print("1. Block Ads")
-        print("2. Unblock Ads")
-        print("3. Exit")
-        choice = input("Enter your choice (1, 2, or 3): ")
+        print("لطفاً یک گزینه را انتخاب کنید:")
+        print("1. بلوکه کردن تبلیغات")
+        print("2. باز کردن تبلیغات")
+        print("3. خروج")
+
+        try:
+            choice = input("انتخاب خود را وارد کنید (1، 2، یا 3): ")
+        except EOFError:
+            print("\nخطای EOF رخ داده است. در حال خروج...")
+            break
 
         if choice in actions:
             if actions[choice] == 'exit':
                 clear_screen()
-                print("Exiting...")
+                print("در حال خروج...")
                 break
             else:
                 block_unblock_ads(actions[choice])
         else:
-            print("Invalid choice, please select 1, 2, or 3.")
+            print("انتخاب نامعتبر است، لطفاً 1، 2 یا 3 را انتخاب کنید.")
+
 
 if __name__ == "__main__":
     ensure_pip()
