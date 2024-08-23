@@ -8,13 +8,14 @@ A script for users who want to have a great social media experience
 ### 📜 Used in the list below
   - **X-UI**
   - **Marzban Nude**
+####
 ## ⚜️Run AdsBlocker 
 
 ### step 1 (First, you run this command on your server)
 ```bash
 sudo bash "$(https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/adsinstall.sh)"
 ```
-
+####
 ### step 2 (Select 1 to perform the block operation)
 ![GitHub Logo](https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/Data/img-main.png)
 
