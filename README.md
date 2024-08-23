@@ -6,9 +6,9 @@
 `Ads Blocker v1`
 A script for users who want to have a great social media experience
 
-## Setup Instructions
 
-## Run AdsBlocker 
+
+## ⚜️Run AdsBlocker 
 ```bash
 sudo bash "$(https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/adsinstall.sh)"
 ```
