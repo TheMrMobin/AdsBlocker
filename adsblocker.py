@@ -6,17 +6,21 @@ import time
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import multiprocessing
-#t.me/LordDigital_LD
+
 def read_domains(file_path):
+    """Read domains from a file and return a list of non-empty lines."""
     try:
         with open(file_path, 'r') as file:
             return [line.strip() for line in file if line.strip()]
     except FileNotFoundError:
+        print(f"File not found: {file_path}", file=sys.stderr)
         sys.exit(1)
-#t.me/LordDigital_LD
+
+# Read domains from the specified file
 domains_to_block = read_domains("ListAds.txt")
-#t.me/LordDigital_LD
+
 def display_banner():
+    """Display a banner with project information."""
     banner = """
 ======================================================
     _       _       ____  _            _
@@ -25,48 +29,57 @@ def display_banner():
  / ___ \ (_| \__ \ | |_) | | (_) | (__|   <  __/ |
 /_/   \_\__,_|___/ |____/|_|\___/ \___|_|\_\___|_|
 
-            Telegram: @LordDigitdl_LD
+            Telegram: @LordDigital_LD
 ======================================================
 """
     print(banner)
-#t.me/LordDigital_LD
+
 def ensure_pip():
+    """Ensure that pip is available and up-to-date."""
     try:
         subprocess.check_call([sys.executable, '-m', 'pip', '--version'])
     except subprocess.CalledProcessError:
-        subprocess.check_call([sys.executable, '-m', 'ensurepip', '--upgrade'])#t.me/LordDigital_LD
-#t.me/LordDigital_LD
+        subprocess.check_call([sys.executable, '-m', 'ensurepip', '--upgrade'])
+
 def install_packages():
+    """Ensure that required packages are installed."""
     try:
         import tqdm
     except ImportError:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "tqdm"])#t.me/LordDigital_LD
-#t.me/LordDigital_LD
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "tqdm"])
+
 def clear_screen():
+    """Clear the terminal screen."""
     os.system('cls' if os.name == 'nt' else 'clear')
-#t.me/LordDigital_LD
+
 def get_base_domain(domain):
-    parts = domain.split('.')#t.me/LordDigital_LD
+    """Extract the base domain from a given domain."""
+    parts = domain.split('.')
     if len(parts) > 2:
-        return '.'.join(parts[-2:])#t.me/LordDigital_LD
+        return '.'.join(parts[-2:])
     return domain
-#t.me/LordDigital_LD
+
 def manage_domain(domain, action, blocked_domains):
+    """Manage (block or unblock) a domain based on the specified action."""
     base_domain = get_base_domain(domain)
     if base_domain in blocked_domains:
         return
     
     try:
         ip = socket.gethostbyname(domain)
+        cmd_check = ['sudo', 'iptables', '-C', 'OUTPUT', '-d', ip, '-j', 'DROP']
         if action == 'block':
-            cmd_check = ['sudo', 'iptables', '-C', 'OUTPUT', '-d', ip, '-j', 'DROP']
-            cmd_add = [['sudo', 'iptables', '-A', 'OUTPUT', '-d', ip, '-j', 'DROP'],
-                       ['sudo', 'iptables', '-A', 'INPUT', '-s', ip, '-j', 'DROP']]
-        else:
-            cmd_check = ['sudo', 'iptables', '-C', 'OUTPUT', '-d', ip, '-j', 'DROP']
-            cmd_add = [['sudo', 'iptables', '-D', 'OUTPUT', '-d', ip, '-j', 'DROP'],
-                       ['sudo', 'iptables', '-D', 'INPUT', '-s', ip, '-j', 'DROP']]
+            cmd_add = [
+                ['sudo', 'iptables', '-A', 'OUTPUT', '-d', ip, '-j', 'DROP'],
+                ['sudo', 'iptables', '-A', 'INPUT', '-s', ip, '-j', 'DROP']
+            ]
+        else:  # action == 'unblock'
+            cmd_add = [
+                ['sudo', 'iptables', '-D', 'OUTPUT', '-d', ip, '-j', 'DROP'],
+                ['sudo', 'iptables', '-D', 'INPUT', '-s', ip, '-j', 'DROP']
+            ]
 
+        # Check if the rule already exists
         output = subprocess.run(cmd_check, capture_output=True)
         if (action == 'block' and output.returncode != 0) or (action == 'unblock' and output.returncode == 0):
             for cmd in cmd_add:
@@ -75,12 +88,14 @@ def manage_domain(domain, action, blocked_domains):
 
     except socket.gaierror:
         pass
-#t.me/LordDigital_LD
+
 def block_unblock_ads(action):
+    """Block or unblock ads based on the specified action."""
     clear_screen()
     display_banner()
     blocked_domains = set()
-    max_threads = min(50, multiprocessing.cpu_count() * 10)#t.me/LordDigital_LD
+    max_threads = min(50, multiprocessing.cpu_count() * 2)  # Adjusted to 2x CPU count
+
     start_time = time.time()
     
     with tqdm(total=len(domains_to_block), desc=f"{action.capitalize()}ing domains", ncols=100, ascii=True) as pbar:
@@ -91,8 +106,9 @@ def block_unblock_ads(action):
     
     elapsed_time = time.time() - start_time
     print(f"\nAds have been {action}ed in {elapsed_time:.2f} seconds.")
-#t.me/LordDigital_LD
+
 def menu():
+    """Display the menu and handle user input."""
     actions = {'1': 'block', '2': 'unblock', '3': 'exit'}
     while True:
         clear_screen()
@@ -112,7 +128,7 @@ def menu():
                 block_unblock_ads(actions[choice])
         else:
             print("Invalid choice, please select 1, 2, or 3.")
-#t.me/LordDigital_LD
+
 if __name__ == "__main__":
     ensure_pip()
     install_packages()
