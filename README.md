@@ -14,7 +14,7 @@ A script for users who want to have a great social media experience
 ```bash
 sudo bash "$(https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/adsinstall.sh)"
 ```
-</br>
+
 ### step 2 (Select 1 to perform the block operation)
 ![GitHub Logo](https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/Data/img-main.png)
 
