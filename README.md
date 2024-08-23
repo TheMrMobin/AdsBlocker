@@ -9,8 +9,8 @@ A script for users who want to have a great social media experience
 
 
 ## ⚜️Run AdsBlocker 
-# First, you run this command on your server
-### step 1
+
+### step 1 (First, you run this command on your server)
 ```bash
 sudo bash "$(https://raw.githubusercontent.com/TheMrMobin/AdsBlocker/main/adsinstall.sh)"
 ```
