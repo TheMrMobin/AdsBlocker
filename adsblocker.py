@@ -117,12 +117,12 @@ def menu():
         print("1. Block Ads")
         print("2. Unblock Ads")
         print("3. Exit")
-        print("Enter your choice (1, 2, or 3): ")
-        # try:
-        #     choice = input("Enter your choice (1, 2, or 3): ")
-        # except EOFError:
-        #     print("\nEOFError encountered. Exiting...")
-        #     break
+
+        try:
+            choice = input("Enter your choice (1, 2, or 3): ")
+        except EOFError:
+            print("\nEOFError encountered. Exiting...")
+            break
 
         if choice in actions:
             if actions[choice] == 'exit':
